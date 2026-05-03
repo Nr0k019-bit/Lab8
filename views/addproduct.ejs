@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container">
+    <div class="py-3">
+        <h3>Add Product</h3>
+        <a href="/" class="btn btn-primary mb-3">Go Back</a>
+        <hr>
+        <% if (message != '') { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+        <form action="/product/add" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Product Name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" name="category" placeholder="Category" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" step="0.01" class="form-control" name="price" placeholder="Price" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" name="stock" placeholder="Stock" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <input type="file" class="form-control" name="image" accept="image/png, image/jpeg" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">Add Product</button>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
